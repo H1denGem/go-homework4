@@ -7,12 +7,12 @@ import (
 )
 
 type Post struct {
-	ID        int64  `gorm:"primaryKey"`
-	Title     string `gorm:"not null"`
-	Content   string `gorm:"not null"`
-	UserID    int64  `gorm:"not null"`
-	User      User   `gorm:"foreignKey:UserID"`
-	CreatedAt time.Time
-	UpdatedAt time.Time
-	DeletedAt gorm.DeletedAt `gorm:"index"`
+	ID        int64          `gorm:"primaryKey" json:"id"`
+	Title     string         `gorm:"not null" json:"title"`
+	Content   string         `gorm:"not null" json:"content"`
+	UserID    int64          `gorm:"not null" json:"user_id"`
+	User      User           `gorm:"foreignKey:UserID" json:"user"`
+	CreatedAt time.Time      `json:"created_at"`
+	UpdatedAt time.Time      `json:"updated_at"`
+	DeletedAt gorm.DeletedAt `gorm:"index" json:"-"`
 }

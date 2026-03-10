@@ -39,7 +39,7 @@ func Auth(jwtSecret []byte) gin.HandlerFunc {
 		}
 
 		// 将用户信息存储到 Context
-		c.Set("user_id", claims.UserID)
+		c.Set("user_id", uint64(claims.UserID))
 		c.Set("username", claims.Username)
 
 		log.Printf("认证成功: UserID=%d, Username=%s", claims.UserID, claims.Username)
